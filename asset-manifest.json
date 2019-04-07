@@ -1,13 +1,13 @@
 {
-  "main.css": "/kullmar/web/static/css/main.c38bd2f1.chunk.css",
-  "main.js": "/kullmar/web/static/js/main.dfb6ccf8.chunk.js",
-  "main.js.map": "/kullmar/web/static/js/main.dfb6ccf8.chunk.js.map",
-  "runtime~main.js": "/kullmar/web/static/js/runtime~main.08cfaf89.js",
-  "runtime~main.js.map": "/kullmar/web/static/js/runtime~main.08cfaf89.js.map",
-  "static/js/2.1bd38adb.chunk.js": "/kullmar/web/static/js/2.1bd38adb.chunk.js",
-  "static/js/2.1bd38adb.chunk.js.map": "/kullmar/web/static/js/2.1bd38adb.chunk.js.map",
-  "index.html": "/kullmar/web/index.html",
-  "precache-manifest.f4d5b7c4202ae1db1d9e68df7555ab86.js": "/kullmar/web/precache-manifest.f4d5b7c4202ae1db1d9e68df7555ab86.js",
-  "service-worker.js": "/kullmar/web/service-worker.js",
-  "static/css/main.c38bd2f1.chunk.css.map": "/kullmar/web/static/css/main.c38bd2f1.chunk.css.map"
+  "main.css": "/web/static/css/main.c38bd2f1.chunk.css",
+  "main.js": "/web/static/js/main.3f0565ec.chunk.js",
+  "main.js.map": "/web/static/js/main.3f0565ec.chunk.js.map",
+  "runtime~main.js": "/web/static/js/runtime~main.f367b2fd.js",
+  "runtime~main.js.map": "/web/static/js/runtime~main.f367b2fd.js.map",
+  "static/js/2.8356d4f2.chunk.js": "/web/static/js/2.8356d4f2.chunk.js",
+  "static/js/2.8356d4f2.chunk.js.map": "/web/static/js/2.8356d4f2.chunk.js.map",
+  "index.html": "/web/index.html",
+  "precache-manifest.29a542953be38ea18f5d709f57424445.js": "/web/precache-manifest.29a542953be38ea18f5d709f57424445.js",
+  "service-worker.js": "/web/service-worker.js",
+  "static/css/main.c38bd2f1.chunk.css.map": "/web/static/css/main.c38bd2f1.chunk.css.map"
 }
