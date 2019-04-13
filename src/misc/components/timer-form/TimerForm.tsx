@@ -61,7 +61,7 @@ export default function TimerForm({onSubmit}: {onSubmit?: (data: TimerData) => v
                     type="number"
                 />
             </label>
-            <button type="submit">Update</button>
+            <button type="submit">OK</button>
         </Form>
     )
 }

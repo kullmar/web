@@ -1,0 +1,29 @@
+{
+    "todos": [
+        {
+            "id": "1",
+            "text": "lorem ipsum",
+            "completed": false
+        },
+        {
+            "id": "2",
+            "text": "lorem ipsum",
+            "completed": false
+        },
+        {
+            "id": "3",
+            "text": "lorem ipsum",
+            "completed": true
+        },
+        {
+            "id": "4",
+            "text": "lorem ipsum",
+            "completed": true
+        },
+        {
+            "id": "5",
+            "text": "lorem ipsum",
+            "completed": false
+        }
+    ]
+}

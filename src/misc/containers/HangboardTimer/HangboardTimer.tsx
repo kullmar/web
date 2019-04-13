@@ -4,6 +4,14 @@ import TimerForm from '../../components/timer-form/TimerForm';
 import Content from '../../ui/Content/Content';
 import { TimerData } from '../../components/timer-form/TimerForm';
 import IntervalTimer from '../../components/countdown/IntervalTimer';
+import styled from 'styled-components';
+
+const CenteredDiv = styled.div`
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+`;
 
 export default function HangboardTimer() {
     const [showForm, setShowForm] = useState(true);
@@ -11,18 +19,24 @@ export default function HangboardTimer() {
         hangTimeMs: 0,
         restTimeMs: 0,
         repsCount: 1,
-        setsCount: 1
+        setsCount: 1,
     });
-    
+
     const intervals = getIntervals(timerData);
 
-    return(
+    return (
         <Content>
-            { showForm && <TimerForm onSubmit={(data: TimerData) => {
-                setTimerData(data);
-                setShowForm(false);
-            }} />}
-            { !showForm && <IntervalTimer milliseconds={intervals}></IntervalTimer>}
+            <CenteredDiv>
+                {showForm && (
+                    <TimerForm
+                        onSubmit={(data: TimerData) => {
+                            setTimerData(data);
+                            setShowForm(false);
+                        }}
+                    />
+                )}
+                {!showForm && <IntervalTimer milliseconds={intervals} />}
+            </CenteredDiv>
         </Content>
     );
 }

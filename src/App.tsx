@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { ThemeProvider } from 'styled-components';
-
-import HangboardTimer from './containers/HangboardTimer/HangboardTimer';
-
+import HangboardTimer from './misc/containers/HangboardTimer/HangboardTimer';
+  
 const theme = {
   breakpoints: {
     phone: '@media (max-width: 599px)',
