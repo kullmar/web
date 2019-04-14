@@ -2,7 +2,8 @@ import { normalize, schema } from 'normalizr';
 import { TodoActionTypes, LOAD_TODOS, ADD_TODO, LOAD_TODOS_SUCCESS, LOAD_TODOS_FAIL } from "./actions";
 import { TodoItem } from "./models";
 
-export const todo = new schema.Entity('todos');
+export const todoSchema = new schema.Entity('todo');
+export const todoListSchema = [todoSchema];
 
 export interface TodoState {
     entities: { 
@@ -23,7 +24,7 @@ export const initialState: TodoState = {
 export const reducer = (state = initialState, action: TodoActionTypes) => {
     switch(action.type) {
         case ADD_TODO: {
-            const { result, entities } = normalize(action.payload, todo);
+            const { result, entities } = normalize(action.payload, todoSchema);
             return {
                 ...state,
                 entities: {...state.entities, entities},
@@ -39,13 +40,10 @@ export const reducer = (state = initialState, action: TodoActionTypes) => {
             };
         }
         case LOAD_TODOS_SUCCESS: {
-            const { result, entities } = normalize(action.payload, todo);
-            console.log(action.payload);
-            console.log(result);
-            console.log(entities);
+            const { result, entities } = normalize(action.payload, todoListSchema);
             return {
                 entities,
-                todos: result.todos,
+                todos: result,
                 loaded: true,
                 loading: false
             };
