@@ -10,7 +10,7 @@
     "@types/react": "16.8.12",
     "@types/react-dom": "16.8.3",
     "@types/react-redux": "^7.0.6",
-    "@types/styled-components": "^4.1.12",
+    "@types/styled-components": "^4.1.10",
     "axios": "^0.18.0",
     "gh-pages": "^2.0.1",
     "lodash": "^4.17.11",
@@ -24,8 +24,9 @@
     "redux-actions": "^2.6.5",
     "redux-devtools-extension": "^2.13.8",
     "redux-saga": "^1.0.2",
+    "reselect": "^4.0.0",
     "styled-components": "^4.2.0",
-    "typescript": "3.4.2"
+    "typescript": "3.3.4000"
   },
   "scripts": {
     "start": "react-scripts start",

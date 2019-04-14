@@ -8,11 +8,12 @@ import { Provider } from 'react-redux'
 import { createStore, applyMiddleware } from 'redux'
 import createSagaMiddleware from 'redux-saga'
 import { composeWithDevTools } from 'redux-devtools-extension';
-import * as fromTodo from './todo';
+import { rootReducer } from './rootReducer';
+import rootSaga from './rootSaga';
 
 const sagaMiddleware = createSagaMiddleware()
-const store = createStore(fromTodo.reducer, composeWithDevTools(applyMiddleware(sagaMiddleware)));
-sagaMiddleware.run(fromTodo.rootSaga)
+const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(sagaMiddleware)));
+sagaMiddleware.run(rootSaga);
 
 render(
   <Provider store={store}>

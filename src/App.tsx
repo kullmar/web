@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { ThemeProvider } from 'styled-components';
 import HangboardTimer from './misc/containers/HangboardTimer/HangboardTimer';
+import { TodoContainer } from './todo/TodoContainer';
   
 const theme = {
   breakpoints: {
@@ -14,7 +15,7 @@ class App extends Component {
   render() {
     return (
       <ThemeProvider theme={theme}>
-        <HangboardTimer />
+        <TodoContainer />
       </ThemeProvider>
     );
   }
