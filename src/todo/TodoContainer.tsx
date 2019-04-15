@@ -4,34 +4,40 @@ import { TodosList } from "./TodosList";
 import { State } from "../rootReducer";
 import { connect } from "react-redux";
 import * as todoActions from './actions';
+import { getAllTodos } from './selectors';
+import { TodoItem } from './models';
 
 const Container = styled.div``;
 const Input = styled.input``;
 
-export function TodoContainer() {
-    // useEffect(() => loadTodos(), []);
+interface ContainerState {
+    todos: TodoItem[];
+}
+
+function TodoContainer({todos, loadTodos}: { todos: TodoItem[], loadTodos: () => void}) {
+    useEffect(() => {
+        loadTodos()
+    }, []);
     
     return(
         <Container>
             <Input
                 type="text"
             />
-            <TodosList todos={[]}></TodosList>
+            <TodosList todos={todos}></TodosList>
         </Container>
     );
 }
 
-function mapDispatchToProps() {
+function mapStateToProps(state: State): ContainerState {
     return {
-        loadTodos: todoActions.loadTodos
+        todos: getAllTodos(state)
     };
-}
-
-function mapStateToProps(state: State) {
-    return state.todo;
 }
 
 export default connect(
     mapStateToProps,
-    mapDispatchToProps,
+    {
+        loadTodos: todoActions.loadTodos
+    }
 )(TodoContainer);

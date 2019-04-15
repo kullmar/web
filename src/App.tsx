@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { ThemeProvider } from 'styled-components';
 import HangboardTimer from './misc/containers/HangboardTimer/HangboardTimer';
-import { TodoContainer } from './todo/TodoContainer';
+import TodoContainer from './todo/TodoContainer';
   
 const theme = {
-  breakpoints: {
+  breakpoints:    {
     phone: '@media (max-width: 599px)',
     tablet: '@media (min-width: 600px)',
     desktop: '@media (min-width: 1200px)'

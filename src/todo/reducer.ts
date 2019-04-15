@@ -11,12 +11,14 @@ export interface TodoState {
     entities: { 
         [todos: string]: TodoItem 
     };
+    allIds: string[];
     loaded: boolean;
     loading: boolean;
 }
 
 export const initialState: TodoState = {
     entities: {},
+    allIds: [],
     loaded: false,
     loading: false
 }
@@ -39,9 +41,10 @@ export const reducer = (state = initialState, action: TodoActionTypes) => {
             };
         }
         case LOAD_TODOS_SUCCESS: {
-            const { entities } = normalize(action.payload, todoListSchema);
+            const { result, entities } = normalize(action.payload, todoListSchema);
             return {
                 entities: entities[name],
+                allIds: result,
                 loaded: true,
                 loading: false
             };
