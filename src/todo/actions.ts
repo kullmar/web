@@ -2,6 +2,8 @@ import { TodoItem } from "./models";
 
 // actions
 export const ADD_TODO = 'ADD_TODO';
+export const ADD_TODO_FAIL = 'ADD_TODO_FAIL';
+export const ADD_TODO_SUCCESS = 'ADD_TODO_SUCCESS';
 export const LOAD_TODOS = 'LOAD_TODOS';
 export const LOAD_TODOS_FAIL = 'LOAD_TODOS_FAIL';
 export const LOAD_TODOS_SUCCESS = 'LOAD_TODOS_SUCCESS';
@@ -9,7 +11,15 @@ export const LOAD_TODOS_SUCCESS = 'LOAD_TODOS_SUCCESS';
 // action interfaces
 export interface AddTodoAction {
     type: typeof ADD_TODO;
-    payload: TodoItem
+    payload: string
+}
+export interface AddTodoSuccessAction {
+    type: typeof ADD_TODO;
+    payload: string
+}
+export interface AddTodoFailAction {
+    type: typeof ADD_TODO;
+    payload: string
 }
 
 export interface LoadTodosAction {
@@ -25,10 +35,10 @@ export interface LoadTodosSuccessAction {
 }
 
 // action creators
-export const addTodo = (todo: TodoItem): AddTodoAction => {
+export const addTodo = (text: string): AddTodoAction => {
     return {
         type: ADD_TODO,
-        payload: todo
+        payload: text
     }
 }
 
