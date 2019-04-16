@@ -1,4 +1,4 @@
-import { TodoItem } from "./models";
+import { TodoItem } from './models';
 
 // actions
 export const ADD_TODO = 'ADD_TODO';
@@ -11,53 +11,71 @@ export const LOAD_TODOS_SUCCESS = 'LOAD_TODOS_SUCCESS';
 // action interfaces
 export interface AddTodoAction {
     type: typeof ADD_TODO;
-    payload: string
+    payload: string;
 }
 export interface AddTodoSuccessAction {
-    type: typeof ADD_TODO;
-    payload: string
+    type: typeof ADD_TODO_SUCCESS;
+    payload: TodoItem;
 }
 export interface AddTodoFailAction {
-    type: typeof ADD_TODO;
-    payload: string
+    type: typeof ADD_TODO_FAIL;
+    payload: any;
 }
 
 export interface LoadTodosAction {
-    type: typeof LOAD_TODOS
+    type: typeof LOAD_TODOS;
 }
 export interface LoadTodosFailAction {
-    type: typeof LOAD_TODOS_FAIL,
-    payload: any
+    type: typeof LOAD_TODOS_FAIL;
+    payload: any;
 }
 export interface LoadTodosSuccessAction {
-    type: typeof LOAD_TODOS_SUCCESS,
-    payload: TodoItem[]
+    type: typeof LOAD_TODOS_SUCCESS;
+    payload: TodoItem[];
 }
 
 // action creators
 export const addTodo = (text: string): AddTodoAction => {
     return {
         type: ADD_TODO,
-        payload: text
-    }
-}
+        payload: text,
+    };
+};
+export const addTodoFail = (error: any): AddTodoFailAction => {
+    return {
+        type: ADD_TODO_FAIL,
+        payload: error,
+    };
+};
+export const addTodoSuccess = (todo: TodoItem): AddTodoSuccessAction => {
+    return {
+        type: ADD_TODO_SUCCESS,
+        payload: todo,
+    };
+};
 
 export const loadTodos = (): LoadTodosAction => {
     return {
-        type: LOAD_TODOS
-    }
+        type: LOAD_TODOS,
+    };
 };
 export const loadTodosFail = (error: any): LoadTodosFailAction => {
     return {
         type: LOAD_TODOS_FAIL,
-        payload: error
-    }
-}
+        payload: error,
+    };
+};
 export const LoadTodosSuccess = (todos: TodoItem[]): LoadTodosSuccessAction => {
     return {
         type: LOAD_TODOS_SUCCESS,
-        payload: todos
-    }
-}
+        payload: todos,
+    };
+};
 
-export type TodoActionTypes = AddTodoAction | LoadTodosAction | LoadTodosFailAction | LoadTodosSuccessAction;
+export type TodoActionTypes =
+    | AddTodoAction
+    | AddTodoFailAction
+    | AddTodoSuccessAction
+    | LoadTodosAction
+    | LoadTodosFailAction
+    | LoadTodosSuccessAction;

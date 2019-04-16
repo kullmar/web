@@ -13,7 +13,7 @@ const ListItem = styled.li``;
 
 export function TodoList({todos}: {todos: TodoItem[]}) {
     const todosJsx = todos.map(todo => (
-        <Todo todo={todo} />
+        <Todo todo={todo} key={todo.id} />
     ));
 
     return (

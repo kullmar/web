@@ -1,5 +1,5 @@
 import { normalize, schema } from 'normalizr';
-import { TodoActionTypes, LOAD_TODOS, ADD_TODO, LOAD_TODOS_SUCCESS, LOAD_TODOS_FAIL } from "./actions";
+import { TodoActionTypes, LOAD_TODOS, ADD_TODO, LOAD_TODOS_SUCCESS, LOAD_TODOS_FAIL, ADD_TODO_SUCCESS, ADD_TODO_FAIL } from "./actions";
 import { TodoItem } from "./models";
 
 const name = 'todos';
@@ -25,14 +25,16 @@ export const initialState: TodoState = {
 
 export const reducer = (state = initialState, action: TodoActionTypes) => {
     switch(action.type) {
-        case ADD_TODO: {
-            const { entities } = normalize(action.payload, todoSchema);
+        case ADD_TODO_SUCCESS: {
+            const { result, entities } = normalize(action.payload, todoSchema);
             return {
                 ...state,
-                entities: {...state.entities[name], entities},
+                entities: {...state.entities, ...entities.todos},
+                allIds: [...state.allIds, result]
             };
         }
 
+        case ADD_TODO:
         case LOAD_TODOS: {
             return {
                 ...state,
@@ -40,6 +42,7 @@ export const reducer = (state = initialState, action: TodoActionTypes) => {
                 loading: true
             };
         }
+        
         case LOAD_TODOS_SUCCESS: {
             const { result, entities } = normalize(action.payload, todoListSchema);
             return {
@@ -49,6 +52,8 @@ export const reducer = (state = initialState, action: TodoActionTypes) => {
                 loading: false
             };
         }
+
+        case ADD_TODO_FAIL:
         case LOAD_TODOS_FAIL: {
             return {
                 ...state,

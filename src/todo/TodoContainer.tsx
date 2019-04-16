@@ -7,16 +7,26 @@ import * as todoActions from './actions';
 import { getAllTodos } from './selectors';
 import { TodoItem } from './models';
 
-const Button = styled.button``;
 const Container = styled.div`
     display: flex;
     flex-direction: column;
+`;
+const Button = styled.button`
+    flex: 0 0 auto;
 `;
 const Row = styled.div`
     display: flex;
     flex-direction: row;
 `
-const Input = styled.input``;
+const Input = styled.input`
+    height: 40px;
+    flex: 1 0 auto;
+`;
+const CenteredRow = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+`
 
 interface ContainerState {
     todos: TodoItem[];
@@ -38,6 +48,9 @@ function TodoContainer({
 
     return (
         <Container>
+            <CenteredRow>
+                <h2>Todos</h2>
+            </CenteredRow>
             <Row>
                 <Input
                     type="text"
