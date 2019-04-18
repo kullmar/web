@@ -1,54 +1,49 @@
 {
   "todos": [
     {
-      "id": "1",
-      "text": "lorem ipsum",
-      "completed": false
+      "text": "Groceries",
+      "completed": false,
+      "id": 1
     },
     {
-      "id": "2",
-      "text": "lorem ipsum",
-      "completed": false
+      "text": "Groceries",
+      "completed": false,
+      "id": 2
     },
     {
-      "id": "3",
-      "text": "lorem ipsum",
-      "completed": true
+      "text": "Groceries",
+      "completed": false,
+      "id": 3
     },
     {
-      "id": "4",
-      "text": "lorem ipsum",
-      "completed": true
+      "text": "Groceries",
+      "completed": false,
+      "id": 4
     },
     {
-      "id": "5",
-      "text": "lorem ipsum",
-      "completed": false
+      "text": "Groceries",
+      "completed": false,
+      "id": 5
     },
     {
-      "id": "9eaf6893-8a7c-4c84-9e0b-3c50091d557f",
-      "text": "abc",
-      "completed": false
+      "text": "Groceries",
+      "completed": false,
+      "id": 6
     },
     {
-      "id": "70b328bc-07d7-4b0c-98f8-58aa99196987",
-      "text": "abc",
-      "completed": false
+      "text": "Groceries",
+      "completed": false,
+      "id": 7
     },
     {
-      "id": "91116c77-7741-4fd9-8571-8a262c01ab31",
-      "text": "123",
-      "completed": false
+      "text": "Groceries",
+      "completed": false,
+      "id": 8
     },
     {
-      "id": "554118e7-ede8-4735-a410-9572f5935526",
-      "text": "dqwdqw",
-      "completed": false
-    },
-    {
-      "id": "98f24b86-13ff-4ffd-b57f-c52302451009",
-      "text": "dqwdw",
-      "completed": false
+      "text": "Groceries",
+      "completed": false,
+      "id": 9
     }
   ]
 }

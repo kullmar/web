@@ -1,5 +1,5 @@
 import { call, put, takeLatest, takeEvery, all, fork } from 'redux-saga/effects'
-import axios from 'axios';
+import axios, { AxiosResponse } from 'axios';
 const uuidv4 = require('uuid/v4');
 
 import * as fromActions from './actions';
@@ -7,7 +7,7 @@ import { TodoItem } from './models';
 
 export function* loadTodosAsync() {
     try {
-        const response = yield call(axios.get, '/api/todos');
+        const response: AxiosResponse<TodoItem[]> = yield call(axios.get, '/api/todos');
         yield put(fromActions.LoadTodosSuccess(response.data));
     }
     catch(error) {
@@ -16,17 +16,22 @@ export function* loadTodosAsync() {
 }
 
 export function* addTodoAsync(action: fromActions.AddTodoAction) {
+    const tempId = uuidv4();
+
     try {
-        const todo: TodoItem = {
-            id: uuidv4(),
+        const todo = {
             text: action.payload,
             completed: false
         };
-        yield call(axios.post, '/api/todos', todo);
-        yield put(fromActions.addTodoSuccess(todo));
+        yield put(fromActions.addPending(tempId))
+        const response: AxiosResponse<TodoItem> = yield call(axios.post, '/api/todos', todo);
+        yield put(fromActions.addTodoSuccess(response.data));
     }
     catch(error) {
         yield put(fromActions.addTodoFail(error));
+    }
+    finally {
+        yield put(fromActions.removePending(tempId));
     }
 }
 

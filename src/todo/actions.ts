@@ -4,6 +4,10 @@ import { TodoItem } from './models';
 export const ADD_TODO = 'ADD_TODO';
 export const ADD_TODO_FAIL = 'ADD_TODO_FAIL';
 export const ADD_TODO_SUCCESS = 'ADD_TODO_SUCCESS';
+
+export const ADD_PENDING = 'ADD_PENDING';
+export const REMOVE_PENDING = 'REMOVE_PENDING';
+
 export const LOAD_TODOS = 'LOAD_TODOS';
 export const LOAD_TODOS_FAIL = 'LOAD_TODOS_FAIL';
 export const LOAD_TODOS_SUCCESS = 'LOAD_TODOS_SUCCESS';
@@ -22,6 +26,15 @@ export interface AddTodoFailAction {
     payload: any;
 }
 
+export interface AddPendingAction {
+    type: typeof ADD_PENDING,
+    payload: string;
+}
+export interface RemovePendingAction {
+    type: typeof REMOVE_PENDING,
+    payload: string;
+}
+
 export interface LoadTodosAction {
     type: typeof LOAD_TODOS;
 }
@@ -38,7 +51,7 @@ export interface LoadTodosSuccessAction {
 export const addTodo = (text: string): AddTodoAction => {
     return {
         type: ADD_TODO,
-        payload: text,
+        payload: text
     };
 };
 export const addTodoFail = (error: any): AddTodoFailAction => {
@@ -53,6 +66,19 @@ export const addTodoSuccess = (todo: TodoItem): AddTodoSuccessAction => {
         payload: todo,
     };
 };
+
+export const addPending = (id: string): AddPendingAction => {
+    return {
+        type: ADD_PENDING,
+        payload: id
+    }
+}
+export const removePending = (id: string): RemovePendingAction => {
+    return {
+        type: REMOVE_PENDING,
+        payload: id
+    }
+}
 
 export const loadTodos = (): LoadTodosAction => {
     return {
@@ -78,4 +104,6 @@ export type TodoActionTypes =
     | AddTodoSuccessAction
     | LoadTodosAction
     | LoadTodosFailAction
-    | LoadTodosSuccessAction;
+    | LoadTodosSuccessAction
+    | AddPendingAction
+    | RemovePendingAction;

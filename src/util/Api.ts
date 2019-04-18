@@ -1,4 +1,4 @@
-import axios, { AxiosResponse, AxiosRequestConfig, AxiosError } from 'axios';
+import axios, { AxiosResponse, AxiosRequestConfig, AxiosError, AxiosPromise } from 'axios';
 
 const PREFIX = '/api/';
 const config: AxiosRequestConfig = {
@@ -7,11 +7,6 @@ const config: AxiosRequestConfig = {
 
 axios(config);
 
-export function get<T>(resource: string): void {
-    axios
-        .get(resource)
-        .then((response: AxiosResponse) => response.data)
-        .catch((error: AxiosError) => {
-            return error;
-        });
+export function get<T>(resource: string): AxiosPromise<T> {
+    return axios.get(resource);
 }
