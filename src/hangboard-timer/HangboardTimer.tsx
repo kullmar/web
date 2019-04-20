@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 
-import TimerForm from '../../components/timer-form/TimerForm';
-import Content from '../../ui/Content/Content';
-import { TimerData } from '../../components/timer-form/TimerForm';
-import IntervalTimer from '../../components/countdown/IntervalTimer';
+import TimerForm from './timer-form/TimerForm';
+import Content from '../common/ui/Content/Content';
+import { TimerData } from './timer-form/TimerForm';
+import IntervalTimer from '../common/countdown/IntervalTimer';
 import styled from 'styled-components';
 
 const CenteredDiv = styled.div`

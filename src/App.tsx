@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { ThemeProvider } from 'styled-components';
-import HangboardTimer from './misc/containers/HangboardTimer/HangboardTimer';
+import HangboardTimer from './hangboard-timer/HangboardTimer';
 import TodoContainer from './todo/TodoContainer';
   
 const theme = {
